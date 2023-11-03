@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popover</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+</head>
+<body>
+
+<style>
+    #fancy-popover:popover-open {
+        position: absolute;
+        inset: unset;
+        bottom: 5px;
+        left: 5px;
+        margin: 0;
+        border: 2px solid darkgray;
+        border-radius: 5px;
+        padding: 2em;
+    }
+
+    #fancy-popover::backdrop {
+        backdrop-filter: blur(3px);
+    }
+</style>
+<main>
+    <div>
+        <h1>Popover API</h1>
+        <p>HTML syntax and JS API facilitating popovers such as overlays, popups, menus etc.</p>
+        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using">Using the Popover
+            API</a>
+
+        <h2>Basic Example</h2>
+        <button popovertarget="default">Toggle Popover</button>
+        <div id="default" popover>Boring Popover defaults...</div>
+
+        <h2>Fancy Styling</h2>
+        <button popovertarget="fancy-popover">
+            Show popover
+        </button>
+        <div id="fancy-popover" popover>
+            <img width="200px" src="./../images/dancing-pingu.gif">
+        </div>
+
+    </div>
+
+    <code class="language-javascript">
+&lt;h2&gt;Basic Example&lt;/h2&gt;
+&lt;button popovertarget=&quot;default&quot;&gt;Toggle Popover&lt;/button&gt;
+&lt;div id=&quot;default&quot; popover&gt;Boring Popover defaults...&lt;/div&gt;
+
+&lt;h2&gt;Fancy Styling&lt;/h2&gt;
+&lt;button popovertarget=&quot;fancy-popover&quot; popovertargetaction=&quot;show&quot;&gt;
+    Show popover
+&lt;/button&gt;
+&lt;div id=&quot;fancy-popover&quot; popover&gt;
+    &lt;img width=&quot;200px&quot; src=&quot;./../images/dancing-pingu.gif&quot;&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    #fancy-popover:popover-open {
+        position: absolute;
+        inset: unset;
+        bottom: 5px;
+        left: 5px;
+        margin: 0;
+        border: 2px solid darkgray;
+        border-radius: 5px;
+        padding: 2em;
+    }
+
+    #fancy-popover::backdrop {
+        backdrop-filter: blur(3px);
+    }
+&lt;/style&gt;
+    </code>
+
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

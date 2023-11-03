@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css" integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+</head>
+<body>
+    <header>
+        <navigation-component></navigation-component>
+    </header>
+    <main>
+        <h1>Form Data API</h1>
+        <div class="content">
+            <div class="example-description">
+                <form id="form">
+                    <div>
+                        <label>Slidetitle
+                            <input type="text" name="slidetitle"/>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Position
+                            <input type="number" name="position"/>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Type
+                            <input type="text" name="type" list="slidetypes"/>
+                            <datalist id="slidetypes">
+                                <option>Fancy</option>
+                                <option>Boring</option>
+                                <option>Dark</option>
+                            </datalist>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Background color
+                            <input type="color" name="background-color">
+                        </label>
+                    </div>
+                </form>
+                <pre id="formdata"></pre>
+            </div>
+
+            <code class="language-javascript">
+&lt;form id=&quot;form&quot;&gt;
+    &lt;div&gt;
+        &lt;label&gt;Slidetitle
+            &lt;input type=&quot;text&quot; name=&quot;slidetitle&quot;/&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Position
+            &lt;input type=&quot;number&quot; name=&quot;position&quot;/&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Type
+            &lt;input type=&quot;text&quot; name=&quot;type&quot; list=&quot;slidetypes&quot;/&gt;
+            &lt;datalist id=&quot;slidetypes&quot;&gt;
+                &lt;option&gt;Fancy&lt;/option&gt;
+                &lt;option&gt;Boring&lt;/option&gt;
+                &lt;option&gt;Dark&lt;/option&gt;
+            &lt;/datalist&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Background color
+            &lt;input type=&quot;color&quot; name=&quot;background-color&quot;&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+            </code>
+            <code class="language-javascript">
+let form = document.getElementById("form");
+form.onchange = function (event) {
+    let fd = new FormData(form);
+    let data = JSON.stringify(Object.fromEntries(fd), null, 2);
+    document.getElementById("formdata").innerText = data;
+}
+            </code>
+        </div>
+    </main>
+    <script>
+        let form = document.getElementById("form");
+        form.onchange = function (event) {
+            let fd = new FormData(form);
+            let data = JSON.stringify(Object.fromEntries(fd), null, 2);
+            document.getElementById("formdata").innerText = data;
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+            integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

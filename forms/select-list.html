@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+</head>
+<body>
+<header>
+    <navigation-component></navigation-component>
+</header>
+
+<style>
+    .my-custom-select .buttoncontainer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .my-custom-select button {
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+    }
+
+    .my-custom-select button::before {
+        content: '\25BC';
+    }
+
+    .my-custom-select listbox {
+        padding: 0;
+    }
+
+    .my-custom-select .section {
+        padding: 1rem 0 0;
+        background: radial-gradient(ellipse 60% 50px at center top, #000a 0%, transparent 130%);
+    }
+
+    .my-custom-select h3 {
+        margin: 0 0 1rem 0;
+        text-align: center;
+        color: white;
+    }
+
+    .my-custom-select option {
+        text-align: center;
+        padding: 0.5rem;
+    }
+</style>
+<main>
+    <h1>Selectlist (experimental)</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>Chrome/ Brave only, enable "Experimental Web Feautures" in chrome://flags"</p>
+            <p>This example is taken from <a target="_blank" href="https://microsoftedge.github.io/Demos/selectlist/index.html">selectlist demo page</a></p>
+            <selectlist class="my-custom-select">
+                <div class="buttoncontainer">
+                    <span class="label">Choose a plant</span>
+                    <selectedoption></selectedoption>
+                    <button type="selectlist"></button>
+                </div>
+                <listbox>
+                    <div class="section">
+                        <h3>Flowers</h3>
+                        <option>Rose</option>
+                        <option>Lily</option>
+                        <option>Orchid</option>
+                        <option>Tulip</option>
+                    </div>
+                    <div class="section">
+                        <h3>Trees</h3>
+                        <option>Weeping willow</option>
+                        <option>Dragon tree</option>
+                        <option>Giant sequoia</option>
+                    </div>
+                </listbox>
+            </selectlist>
+        </div>
+        <code class="language-javascript">
+  &lt;selectlist class=&quot;my-custom-select&quot;&gt;
+    &lt;div class=&quot;buttoncontainer&quot;&gt;
+      &lt;span class=&quot;label&quot;&gt;Choose a plant&lt;/span&gt;
+      &lt;selectedoption&gt;&lt;/selectedoption&gt;
+      &lt;button type=&quot;selectlist&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;listbox&gt;
+      &lt;div class=&quot;section&quot;&gt;
+        &lt;h3&gt;Flowers&lt;/h3&gt;
+        &lt;option&gt;Rose&lt;/option&gt;
+        &lt;option&gt;Lily&lt;/option&gt;
+        &lt;option&gt;Orchid&lt;/option&gt;
+        &lt;option&gt;Tulip&lt;/option&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;section&quot;&gt;
+        &lt;h3&gt;Trees&lt;/h3&gt;
+        &lt;option&gt;Weeping willow&lt;/option&gt;
+        &lt;option&gt;Dragon tree&lt;/option&gt;
+        &lt;option&gt;Giant sequoia&lt;/option&gt;
+      &lt;/div&gt;
+    &lt;/listbox&gt;
+  &lt;/selectlist&gt;
+    </code>
+  <code class="language-css">
+    .my-custom-select .buttoncontainer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .my-custom-select button {
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+    }
+
+    .my-custom-select button::before {
+        content: '\25BC';
+    }
+
+    .my-custom-select listbox {
+        padding: 0;
+    }
+
+    .my-custom-select .section {
+        padding: 1rem 0 0;
+        background: radial-gradient(ellipse 60% 50px at center top,
+                                    #000a 0%, transparent 130%);
+    }
+
+    .my-custom-select h3 {
+        margin: 0 0 1rem 0;
+        text-align: center;
+        color: white;
+    }
+
+    .my-custom-select option {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+  </code>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popover</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+</head>
+<body>
+
+<style>
+    :popover-open {
+        position: absolute;
+        inset: unset;
+        bottom: 5px;
+        left: 5px;
+        margin: 0;
+        border: 2px solid darkgray;
+        border-radius: 5px;
+        padding: 2em;
+    }
+
+    ::backdrop {
+        backdrop-filter: blur(3px);
+    }
+</style>
+<main>
+    <div>
+        <h1>Popover API - JS Example</h1>
+        <p>HTML syntax and JS API facilitating popovers such as overlays, popups, menus etc.</p>
+        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using">Using the Popover
+            API</a>
+
+        <h2>Javascript toogle - Press 'p'</h2>
+        <div id="popover" popover>
+            <img width="200px" src="./../images/dancing-pingu.gif">
+        </div>
+
+        <script>
+            const popover = document.getElementById("popover");
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "p") {
+                    popover.togglePopover();
+                }
+            });
+        </script>
+    </div>
+
+    <code class="language-javascript">
+&lt;h2&gt;Javascript toogle - Press 'p'&lt;/h2&gt;
+&lt;div id=&quot;popover&quot; popover&gt;
+    &lt;img width=&quot;200px&quot; src=&quot;./../images/dancing-pingu.gif&quot;&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    const popover = document.getElementById(&quot;popover&quot;);
+    document.addEventListener(&quot;keydown&quot;, (event) =&gt; {
+        if (event.key === &quot;p&quot;) {
+            popover.togglePopover();
+        }
+    });
+&lt;/script&gt;
+    </code>
+
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

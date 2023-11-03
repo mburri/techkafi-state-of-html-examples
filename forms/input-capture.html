@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Video Capture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+</head>
+<body>
+<header>
+    <navigation-component></navigation-component>
+</header>
+<main>
+
+    <h1>Input capture</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>Try it with your mobile phone!</p>
+            <form>
+                <label>Upload Video
+                    <input id="videoUpload" type="file" accept="video/*" capture>
+                </label>
+            </form>
+
+            <video width="640" height="400" style="display:none" controls autoplay>
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+        <code class="language-javascript">
+&lt;form&gt;
+    &lt;label&gt;Upload Video
+        &lt;input id=&quot;videoUpload&quot; type=&quot;file&quot; accept=&quot;video/*&quot; capture&gt;
+    &lt;/label&gt;
+&lt;/form&gt;
+&lt;video width=&quot;1024&quot; height=&quot;786&quot; style=&quot;display:none&quot; controls autoplay&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;script&gt;
+    document.getElementById(&quot;videoUpload&quot;).onchange = function (event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector(&quot;video&quot;).style.display = &#39;block&#39;;
+        document.querySelector(&quot;video&quot;).src = blobURL;
+    }
+&lt;/script&gt;
+        </code>
+    </div>
+</main>
+
+<script>
+    document.getElementById("videoUpload").onchange = function (event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector("video").style.display = 'block';
+        document.querySelector("video").src = blobURL;
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
