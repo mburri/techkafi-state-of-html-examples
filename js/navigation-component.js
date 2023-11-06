@@ -79,10 +79,6 @@ class Navigation extends HTMLElement {
         this.shadowRoot.append(nav, style);
 
     }
-
-    connectedCallback() {
-        console.log("location: " , window.location)
-    }
 }
 
 window.customElements.define(
