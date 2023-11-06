@@ -16,144 +16,76 @@
     <navigation-component></navigation-component>
 </header>
 
-<style>
-    .my-custom-select .buttoncontainer {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .my-custom-select button {
-        border: none;
-        margin: 0;
-        padding: 0;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        display: grid;
-        place-content: center;
-    }
-
-    .my-custom-select button::before {
-        content: '\25BC';
-    }
-
-    .my-custom-select listbox {
-        padding: 0;
-    }
-
-    .my-custom-select .section {
-        padding: 1rem 0 0;
-        background: radial-gradient(ellipse 60% 50px at center top, #000a 0%, transparent 130%);
-    }
-
-    .my-custom-select h3 {
-        margin: 0 0 1rem 0;
-        text-align: center;
-        color: white;
-    }
-
-    .my-custom-select option {
-        text-align: center;
-        padding: 0.5rem;
-    }
-</style>
 <main>
     <h1>Selectlist (experimental)</h1>
     <div class="content">
         <div class="example-description">
-            <p>Chrome/ Brave only, enable "Experimental Web Feautures" in chrome://flags"</p>
-            <p>This example is taken from <a target="_blank" href="https://microsoftedge.github.io/Demos/selectlist/index.html">selectlist demo page</a></p>
+            <p>Chrome/ Brave only, enable "Experimental Web Platform Feautures" in chrome://flags"</p>
+            <p>Nov. 2023 - not yet available for mobile!</p>
+            <style>
+                .my-custom-select .buttoncontainer {
+                    display: flex;
+                    align-content: center;
+                }
+                .my-custom-select button {
+                    padding: 5px;
+                    border: none;
+                    background: #f06;
+                    border-radius: 5px 0 0 5px;
+                    color: white;
+                    font-weight: bold;
+                }
+                .my-custom-select .label {
+                    padding: 5px;
+                    border: 1px solid #f06;
+                    border-radius: 0 5px 5px 0;
+                }
+
+                .my-custom-select option {
+                    font-style: italic;
+                }
+            </style>
             <selectlist class="my-custom-select">
                 <div class="buttoncontainer">
-                    <span class="label">Choose a plant</span>
-                    <selectedoption></selectedoption>
-                    <button type="selectlist"></button>
+                    <button type=selectlist>Open</button>
+                    <span class="label">Choose an option</span>
                 </div>
-                <listbox>
-                    <div class="section">
-                        <h3>Flowers</h3>
-                        <option>Rose</option>
-                        <option>Lily</option>
-                        <option>Orchid</option>
-                        <option>Tulip</option>
-                    </div>
-                    <div class="section">
-                        <h3>Trees</h3>
-                        <option>Weeping willow</option>
-                        <option>Dragon tree</option>
-                        <option>Giant sequoia</option>
-                    </div>
-                </listbox>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
             </selectlist>
         </div>
         <code class="language-javascript">
-  &lt;selectlist class=&quot;my-custom-select&quot;&gt;
-    &lt;div class=&quot;buttoncontainer&quot;&gt;
-      &lt;span class=&quot;label&quot;&gt;Choose a plant&lt;/span&gt;
-      &lt;selectedoption&gt;&lt;/selectedoption&gt;
-      &lt;button type=&quot;selectlist&quot;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;listbox&gt;
-      &lt;div class=&quot;section&quot;&gt;
-        &lt;h3&gt;Flowers&lt;/h3&gt;
-        &lt;option&gt;Rose&lt;/option&gt;
-        &lt;option&gt;Lily&lt;/option&gt;
-        &lt;option&gt;Orchid&lt;/option&gt;
-        &lt;option&gt;Tulip&lt;/option&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;section&quot;&gt;
-        &lt;h3&gt;Trees&lt;/h3&gt;
-        &lt;option&gt;Weeping willow&lt;/option&gt;
-        &lt;option&gt;Dragon tree&lt;/option&gt;
-        &lt;option&gt;Giant sequoia&lt;/option&gt;
-      &lt;/div&gt;
-    &lt;/listbox&gt;
-  &lt;/selectlist&gt;
-    </code>
-  <code class="language-css">
+&lt;style&gt;
     .my-custom-select .buttoncontainer {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        align-content: center;
     }
-
     .my-custom-select button {
+        padding: 5px;
         border: none;
-        margin: 0;
-        padding: 0;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        display: grid;
-        place-content: center;
-    }
-
-    .my-custom-select button::before {
-        content: '\25BC';
-    }
-
-    .my-custom-select listbox {
-        padding: 0;
-    }
-
-    .my-custom-select .section {
-        padding: 1rem 0 0;
-        background: radial-gradient(ellipse 60% 50px at center top,
-                                    #000a 0%, transparent 130%);
-    }
-
-    .my-custom-select h3 {
-        margin: 0 0 1rem 0;
-        text-align: center;
+        background: #f06;
+        border-radius: 5px 0 0 5px;
         color: white;
+        font-weight: bold;
+    }
+    .my-custom-select .label {
+        padding: 5px;
+        border: 1px solid #f06;
+        border-radius: 0 5px 5px 0;
     }
 
-    .my-custom-select option {
-        text-align: center;
-        padding: 0.5rem;
-    }
 
+&lt;/style&gt;
+&lt;selectlist class=&quot;my-custom-select&quot;&gt;
+    &lt;div class=&quot;buttoncontainer&quot;&gt;
+        &lt;button type=selectlist&gt;Open&lt;/button&gt;
+        &lt;span class=&quot;label&quot;&gt;Choose an option&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;option&gt;Option 1&lt;/option&gt;
+    &lt;option&gt;Option 2&lt;/option&gt;
+    &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/selectlist&gt;
   </code>
     </div>
 </main>
