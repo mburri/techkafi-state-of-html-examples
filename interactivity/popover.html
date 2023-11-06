@@ -3,53 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popover</title>
+    <title>Popover (Html only)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
           integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="./../styles/style.css">
     <script src="./../js/navigation-component.js"></script>
     <base href="./../">
-
 </head>
 <body>
-
-<style>
-    #fancy-popover:popover-open {
-        position: absolute;
-        inset: unset;
-        bottom: 5px;
-        left: 5px;
-        margin: 0;
-        border: 2px solid darkgray;
-        border-radius: 5px;
-        padding: 2em;
-    }
-
-    #fancy-popover::backdrop {
-        backdrop-filter: blur(3px);
-    }
-</style>
+<header>
+    <navigation-component></navigation-component>
+</header>
 <main>
-    <div>
-        <h1>Popover API</h1>
-        <p>HTML syntax and JS API facilitating popovers such as overlays, popups, menus etc.</p>
-        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using">Using the Popover
-            API</a>
+    <h1>Popover API</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>The Popover API provides developers with a standard, consistent, flexible mechanism for displaying popover content on top of other page content. Popover content can be controlled either declaratively using HTML attributes, or via JavaScript.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">https://developer.mozilla.org/en-US/docs/Web/API/Popover_API</a></p>
 
-        <h2>Basic Example</h2>
-        <button popovertarget="default">Toggle Popover</button>
-        <div id="default" popover>Boring Popover defaults...</div>
+            <h2>Basic Example</h2>
+            <button popovertarget="default">Toggle Popover</button>
+            <div id="default" popover>Boring Popover defaults...</div>
 
-        <h2>Fancy Styling</h2>
-        <button popovertarget="fancy-popover">
-            Show popover
-        </button>
-        <div id="fancy-popover" popover>
-            <img width="200px" src="./images/dancing-pingu.gif">
+            <h2>Fancy Styling</h2>
+            <style>
+                #fancy-popover:popover-open {
+                    position: absolute;
+                    inset: unset;
+                    bottom: 5px;
+                    left: 5px;
+                    margin: 0;
+                    border: 2px solid darkgray;
+                    border-radius: 5px;
+                    padding: 2em;
+                }
+
+                #fancy-popover::backdrop {
+                    backdrop-filter: blur(3px);
+                }
+            </style>
+            <button popovertarget="fancy-popover">
+                Show popover
+            </button>
+            <div id="fancy-popover" popover>
+                <img width="200px" src="./images/dancing-pingu.gif">
+            </div>
         </div>
-
-    </div>
 
     <code class="language-javascript">
 &lt;h2&gt;Basic Example&lt;/h2&gt;
@@ -57,13 +57,6 @@
 &lt;div id=&quot;default&quot; popover&gt;Boring Popover defaults...&lt;/div&gt;
 
 &lt;h2&gt;Fancy Styling&lt;/h2&gt;
-&lt;button popovertarget=&quot;fancy-popover&quot; popovertargetaction=&quot;show&quot;&gt;
-    Show popover
-&lt;/button&gt;
-&lt;div id=&quot;fancy-popover&quot; popover&gt;
-    &lt;img width=&quot;200px&quot; src=&quot;./../images/dancing-pingu.gif&quot;&gt;
-&lt;/div&gt;
-
 &lt;style&gt;
     #fancy-popover:popover-open {
         position: absolute;
@@ -82,7 +75,7 @@
 &lt;/style&gt;
     </code>
 
-
+    </div>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"

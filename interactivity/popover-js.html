@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popover</title>
+    <title>Popover (JS)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
           integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -13,46 +13,53 @@
 </head>
 <body>
 
-<style>
-    :popover-open {
-        position: absolute;
-        inset: unset;
-        bottom: 5px;
-        left: 5px;
-        margin: 0;
-        border: 2px solid darkgray;
-        border-radius: 5px;
-        padding: 2em;
-    }
+<header>
+    <navigation-component></navigation-component>
+</header>
 
-    ::backdrop {
-        backdrop-filter: blur(3px);
-    }
-</style>
 <main>
-    <div>
-        <h1>Popover API - JS Example</h1>
-        <p>HTML syntax and JS API facilitating popovers such as overlays, popups, menus etc.</p>
-        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using">Using the Popover
-            API</a>
+    <h1>Popover API - JS Example</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>The Popover API provides developers with a standard, consistent, flexible mechanism for displaying popover content on top of other page content. Popover content can be controlled either declaratively using HTML attributes, or via JavaScript.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">https://developer.mozilla.org/en-US/docs/Web/API/Popover_API</a></p>
 
-        <h2>Javascript toogle - Press 'p'</h2>
-        <div id="popover" popover>
-            <img width="200px" src="./../images/dancing-pingu.gif">
+            <h2>Toggle Popover via Javascript</h2>
+            <p>Press 'p' to toggle the popover</p>
+            <div id="popover" popover>
+                <img width="200px" src="./../images/dancing-pingu.gif">
+            </div>
+
+            <script>
+                const popover = document.getElementById("popover");
+                document.addEventListener("keydown", (event) => {
+                    if (event.key === "p") {
+                        popover.togglePopover();
+                    }
+                });
+            </script>
+
+            <style>
+                :popover-open {
+                    position: absolute;
+                    inset: unset;
+                    bottom: 5px;
+                    left: 5px;
+                    margin: 0;
+                    border: 2px solid darkgray;
+                    border-radius: 5px;
+                    padding: 2em;
+                }
+
+                ::backdrop {
+                    backdrop-filter: blur(3px);
+                }
+            </style>
         </div>
 
-        <script>
-            const popover = document.getElementById("popover");
-            document.addEventListener("keydown", (event) => {
-                if (event.key === "p") {
-                    popover.togglePopover();
-                }
-            });
-        </script>
-    </div>
-
     <code class="language-javascript">
-&lt;h2&gt;Javascript toogle - Press 'p'&lt;/h2&gt;
+&lt;h2&gt;Toggle Popover via Javascript&lt;/h2&gt;
+&lt;p&gt;Press &#39;p&#39; to toggle the popover&lt;/p&gt;
 &lt;div id=&quot;popover&quot; popover&gt;
     &lt;img width=&quot;200px&quot; src=&quot;./../images/dancing-pingu.gif&quot;&gt;
 &lt;/div&gt;
@@ -67,7 +74,7 @@
 &lt;/script&gt;
     </code>
 
-
+</div>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"

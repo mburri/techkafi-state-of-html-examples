@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+    <base href="./../">
+</head>
+<body>
+<header>
+    <navigation-component></navigation-component>
+</header>
+<main>
+    <h1>Web Component</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">https://developer.mozilla.org/en-US/docs/Web/API/Web_components</a></p>
+            <p>See: <a target="_blank" href="https://www.puzzle.ch/de/blog/articles/2023/11/01/web-components-part-2-browser-apis">https://www.puzzle.ch/de/blog/articles/2023/11/01/web-components-part-2-browser-apis</a></p>
+
+            <p>The navigation of this example app is a Web Component!</p>
+        </div>
+
+        <code class="language-javascript">
+class Navigation extends HTMLElement {
+    constructor() {
+    super();
+    this.attachShadow({mode: &quot;open&quot;});
+
+    const nav = document.createElement(&quot;nav&quot;);
+
+    nav.innerHTML = `
+            &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+            &lt;details open&gt;
+                &lt;summary&gt;Forms&lt;/summary&gt;
+                &lt;div&gt;
+                    &lt;a href=&quot;forms/form-data-api.html&quot;&gt;Form Data API&lt;/a&gt;
+                    &lt;a href=&quot;forms/input-capture.html&quot;&gt;Html attribute: capture&lt;/a&gt;
+                    &lt;a href=&quot;forms/select-list.html&quot;&gt;Selectlist&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/details&gt;
+            // more details omitted
+
+            `
+    const style = document.createElement(&quot;style&quot;)
+            style.textContent = `
+            nav {
+                display: flex;
+                flex-direction: column;
+
+                @media screen and (min-width: 900px) {
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
+            }
+                // more styles omitted
+            `
+    this.shadowRoot.append(nav, style);
+
+    }
+}
+        </code>
+
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

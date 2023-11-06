@@ -1,22 +1,28 @@
 class Navigation extends HTMLElement {
+
+    currentSection;
+
     constructor() {
         super();
         this.attachShadow({mode: "open"});
 
+        this.currentSection = this.determineSection(window.location);
+
         const nav = document.createElement("nav");
+
+        const test = "test"
         nav.innerHTML = `
-            
             <a href="index.html">Home</a>
-            <details open>
+            <details ${this.currentSection === "forms" ? "open" : ""}>
                 <summary>Forms</summary>
                 <div>
                     <a href="forms/form-data-api.html">Form Data API</a>
-                    <a href="forms/input-capture.html">Input Capture</a>
+                    <a href="forms/input-capture.html">Html attribute: capture</a>
                     <a href="forms/select-list.html">Selectlist</a>
                 </div>
             </details>
             
-            <details>
+            <details ${this.currentSection === "interactivity" ? "open" : ""}>
                 <summary>Interactivity</summary>
                 <div>
                     <a href="interactivity/dialog.html">Dialogs</a>
@@ -25,22 +31,19 @@ class Navigation extends HTMLElement {
                 </div>
             </details>
             
-            <details>
+            <details ${this.currentSection === "webcomponents" ? "open" : ""}>
                 <summary>Webcomponents</summary>
                 <div>
                     <a href="webcomponents/navigation.html">Navigation Component</a>
-                    <a href="interactivity/popover.html">Popover (Html only)</a>
-                    <a href="interactivity/popover-js.html">Popovers (JS API)</a>
                 </div>
             </details>
             
-            <details>
+            <details ${this.currentSection === "intl" ? "open" : ""}>
                 <summary>Internationalization</summary>
                 <div>
                     <a href="intl/number-formats.html">Number Formatting</a>
                     <a href="intl/date-formats.html">Date Formatting</a>
                     <a href="intl/relative-time.html">Relative Time</a>
-                    <a href="intl/segments.html">Segmentation</a>
                 </div>
             </details>
         `
@@ -79,6 +82,17 @@ class Navigation extends HTMLElement {
         this.shadowRoot.append(nav, style);
 
     }
+
+    determineSection(location) {
+        const pathname = location.pathname;
+        if (pathname.includes("forms/")) return "forms";
+        if (pathname.includes("interactivity/")) return "interactivity";
+        if (pathname.includes("webcomponents/")) return "webcomponents";
+        if (pathname.includes("intl/")) return "intl";
+
+    }
+
+
 }
 
 window.customElements.define(

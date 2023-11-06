@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intl - Relative time</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+    <base href="./../">
+</head>
+<body>
+
+<header>
+    <navigation-component></navigation-component>
+</header>
+<main>
+    <h1>Intl - Relative time</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>The Intl.RelativeTimeFormat object enables language-sensitive relative time formatting.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat</a></p>
+
+            <selectlist id="language-selector">
+                <button type="selectlist">
+                    <label>language</label>
+                    <selectedoption></selectedoption>
+                </button>
+                <listbox>
+                    <option>de</option>
+                    <option>en</option>
+                    <option>fr</option>
+                    <option>it</option>
+                </listbox>
+            </selectlist>
+
+            <selectlist id="numeric">
+                <button type="selectlist">
+                    <label>numeric</label>
+                    <selectedoption></selectedoption>
+                </button>
+                <listbox>
+                    <option>always</option>
+                    <option>auto</option>
+                </listbox>
+            </selectlist>
+
+            <selectlist id="style">
+                <button type="selectlist">
+                    <label>style</label>
+                    <selectedoption></selectedoption>
+                </button>
+                <listbox>
+                    <option>long</option>
+                    <option>short</option>
+                    <option>narrow</option>
+                </listbox>
+            </selectlist>
+
+            <table>
+                <tbody>
+                    <tr><td>rtf.format(-1, "day"):</td><td id="1-day-ago"></td></tr>
+                    <tr><td>rtf.format(-3, "day"):</td><td id="3-day-ago"></td></tr>
+                    <tr><td>rtf.format(-3, "year"):</td><td id="3-years-ago"></td></tr>
+                    <tr><td>rtf.format(1, "year"):</td><td id="in-1-year"></td></tr>
+                    <tr><td>rtf.format(3, "year"):</td><td id="in-3-years"></td></tr>
+                </tbody>
+            </table>
+
+            <script>
+                var rtf;
+                var lang = "de";
+                var numeric = "always";
+                var style = "long";
+
+                document.getElementById("language-selector").addEventListener("change", event => {
+                    lang = event.target.value;
+                    rtf = getRelativeTimeFormatter()
+                    rerender()
+                });
+
+                document.getElementById("numeric").addEventListener("change", event => {
+                    numeric = event.target.value;
+                    rtf = getRelativeTimeFormatter()
+                    rerender()
+                });
+
+                document.getElementById("style").addEventListener("change", event => {
+                    style = event.target.value;
+                    rtf = getRelativeTimeFormatter()
+                    rerender()
+                });
+
+                function getRelativeTimeFormatter(){
+                    return new Intl.RelativeTimeFormat(lang, {
+                        localeMatcher: "best fit", // other values: "lookup"
+                        numeric: numeric, // other values: "auto"
+                        style: style, // other values: "short" or "narrow"
+                    });
+                }
+
+                function rerender() {
+                    document.getElementById("1-day-ago").innerText = rtf.format(-1, "day");
+                    document.getElementById("3-day-ago").innerText = rtf.format(-3, "day");
+                    document.getElementById("3-years-ago").innerText = rtf.format(-3, "year");
+                    document.getElementById("in-1-year").innerText = rtf.format(1, "year");
+                    document.getElementById("in-3-years").innerText = rtf.format(3, "year");
+                }
+
+                document.getElementById("language-selector").dispatchEvent(new Event("change"))
+            </script>
+        </div>
+
+        <code class="language-javascript">
+&lt;table&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;rtf.format(-1, &quot;day&quot;):&lt;/td&gt;&lt;td id=&quot;1-day-ago&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;rtf.format(-3, &quot;day&quot;):&lt;/td&gt;&lt;td id=&quot;3-day-ago&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;rtf.format(-3, &quot;year&quot;):&lt;/td&gt;&lt;td id=&quot;3-years-ago&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;rtf.format(1, &quot;year&quot;):&lt;/td&gt;&lt;td id=&quot;in-1-year&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;rtf.format(3, &quot;year&quot;):&lt;/td&gt;&lt;td id=&quot;in-3-years&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;script&gt;
+    var rtf;
+    var lang = &quot;de&quot;;
+    var numeric = &quot;always&quot;;
+    var style = &quot;long&quot;;
+
+    // event listeners omitted...
+
+    function getRelativeTimeFormatter(){
+        return new Intl.RelativeTimeFormat(lang, {
+            localeMatcher: &quot;best fit&quot;, // other values: &quot;lookup&quot;
+            numeric: numeric, // other values: &quot;auto&quot;
+            style: style, // other values: &quot;short&quot; or &quot;narrow&quot;
+        });
+    }
+
+    function rerender() {
+        document.getElementById(&quot;1-day-ago&quot;).innerText = rtf.format(-1, &quot;day&quot;);
+        document.getElementById(&quot;3-day-ago&quot;).innerText = rtf.format(-3, &quot;day&quot;);
+        document.getElementById(&quot;3-years-ago&quot;).innerText = rtf.format(-3, &quot;year&quot;);
+        document.getElementById(&quot;in-1-year&quot;).innerText = rtf.format(1, &quot;year&quot;);
+        document.getElementById(&quot;in-3-years&quot;).innerText = rtf.format(3, &quot;year&quot;);
+    }
+
+&lt;/script&gt;
+        </code>
+
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

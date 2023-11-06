@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popover</title>
+    <title>Dialogs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
           integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -13,54 +13,54 @@
 </head>
 <body>
 
-
+<header>
+    <navigation-component></navigation-component>
+</header>
 <main>
-    <div>
-        <h1>Dialogs</h1>
-        <p>HTML syntax and JS API facilitating popovers such as overlays, popups, menus etc.</p>
-        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">The Dialog
-            Element</a>
+    <h1>Dialogs</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>The &lt;dialog&gt; HTML element represents a modal or non-modal dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog</a></p>
 
-        <h2>Modal Dialog with a Custom Backdrop</h2>
+            <h2>Modal Dialog with a Custom Backdrop</h2>
 
-        <style>
-            ::backdrop {
-                background-image: linear-gradient(
-                        45deg,
-                        magenta,
-                        rebeccapurple,
-                        dodgerblue,
-                        green
-                );
-                opacity: 0.75;
-            }
-        </style>
+            <style>
+                ::backdrop {
+                    background-image: linear-gradient(
+                            45deg,
+                            magenta,
+                            rebeccapurple,
+                            dodgerblue,
+                            green
+                    );
+                    opacity: 0.75;
+                }
+            </style>
 
-        <dialog>
-            <button autofocus>Close</button>
-            <p>This modal dialog has a groovy backdrop!</p>
-        </dialog>
-        <button>Show the dialog</button>
+            <dialog>
+                <button autofocus>Close</button>
+                <p>This modal dialog has a groovy backdrop!</p>
+            </dialog>
+            <button>Show the dialog</button>
 
-        <script>
-            const dialog = document.querySelector("dialog");
-            const showButton = document.querySelector("dialog + button");
-            const closeButton = document.querySelector("dialog button");
+            <script>
+                const dialog = document.querySelector("dialog");
+                const showButton = document.querySelector("dialog + button");
+                const closeButton = document.querySelector("dialog button");
 
-            // "Show the dialog" button opens the dialog modally
-            showButton.addEventListener("click", () => {
-                dialog.showModal();
-            });
+                showButton.addEventListener("click", () => {
+                    dialog.showModal();
+                });
 
-            // "Close" button closes the dialog
-            closeButton.addEventListener("click", () => {
-                dialog.close();
-            });
-        </script>
-    </div>
+                closeButton.addEventListener("click", () => {
+                    dialog.close();
+                });
+            </script>
+        </div>
+
 
     <code class="language-javascript">
-
 &lt;dialog&gt;
     &lt;button autofocus&gt;Close&lt;/button&gt;
     &lt;p&gt;This modal dialog has a groovy backdrop!&lt;/p&gt;
@@ -86,19 +86,17 @@
     const showButton = document.querySelector(&quot;dialog + button&quot;);
     const closeButton = document.querySelector(&quot;dialog button&quot;);
 
-    // &quot;Show the dialog&quot; button opens the dialog modally
     showButton.addEventListener(&quot;click&quot;, () =&gt; {
         dialog.showModal();
     });
 
-    // &quot;Close&quot; button closes the dialog
     closeButton.addEventListener(&quot;click&quot;, () =&gt; {
         dialog.close();
     });
 &lt;/script&gt;
     </code>
 
-
+    </div>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"

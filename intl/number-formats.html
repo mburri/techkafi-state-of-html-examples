@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intl - Number formats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+    <base href="./../">
+</head>
+<body>
+
+<header>
+    <navigation-component></navigation-component>
+</header>
+<main>
+    <h1>Intl - Number formats</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>The Intl.NumberFormat object enables language-sensitive number formatting.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat</a></p>
+
+            <br/>
+            <style>
+                span {
+                    font-weight: bold;
+                }
+            </style>
+            <table>
+                <tbody>
+                <tr><td>Unformatted number: </td><td><span id="number"></span></td></tr>
+                <tr><td>Default locale  </td><td><span id="locale-number"></span></td></tr>
+                <tr><td>Locale 'de-CH', currency CHF </td><td><span id="swiss-currency"></span></td></tr>
+                <tr><td>Locale 'de-CH', km/h </td><td><span id="swiss-unit"></span></td></tr>
+                <tr><td>Locale 'de-DE', currency EU  </td><td><span id="german-currency"></span></td></tr>
+                <tr><td>Locale 'ar-EG'  </td><td><span id="arabic"></span></td></tr>
+                <tr><td>Sundanese digits </td><td><span id="sund"></span></td></tr>
+                </tbody>
+            </table>
+
+            <script>
+                const number = 1234556.789;
+                document.getElementById("number").innerText = number;
+                document.getElementById("locale-number").innerText = new Intl.NumberFormat().format(number);
+                document.getElementById("swiss-currency").innerText = new Intl.NumberFormat('de-CH', { style: 'currency', currency: 'CHF'}).format(number);
+                document.getElementById("swiss-unit").innerText = new Intl.NumberFormat('de-CH', { style: 'unit', unit: 'kilometer-per-hour'}).format(number);
+                document.getElementById("german-currency").innerText = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR'}).format(number);
+                document.getElementById("arabic").innerText = new Intl.NumberFormat("ar-EG").format(number)
+                document.getElementById("sund").innerText = new Intl.NumberFormat("en-EN", {numberingSystem: 'sund'}).format(number)
+            </script>
+        </div>
+
+        <code class="language-javascript">
+&lt;table&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Unformatted number: &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;number&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Default locale  &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;locale-number&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Locale &#39;de-CH&#39;, currency CHF &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;swiss-currency&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Locale &#39;de-CH&#39;, km/h &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;swiss-unit&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Locale &#39;de-DE&#39;, currency EU  &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;german-currency&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Locale &#39;ar-EG&#39;  &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;arabic&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Sundanese digits &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;sund&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script&gt;
+    const number = 1234556.789;
+    document.getElementById(&quot;number&quot;).innerText = number;
+    document.getElementById(&quot;locale-number&quot;).innerText = new Intl.NumberFormat().format(number);
+    document.getElementById(&quot;swiss-currency&quot;).innerText = new Intl.NumberFormat(&#39;de-CH&#39;, { style: &#39;currency&#39;, currency: &#39;CHF&#39;}).format(number);
+    document.getElementById(&quot;swiss-unit&quot;).innerText = new Intl.NumberFormat(&#39;de-CH&#39;, { style: &#39;unit&#39;, unit: &#39;kilometer-per-hour&#39;}).format(number);
+    document.getElementById(&quot;german-currency&quot;).innerText = new Intl.NumberFormat(&#39;de-DE&#39;, { style: &#39;currency&#39;, currency: &#39;EUR&#39;}).format(number);
+    document.getElementById(&quot;arabic&quot;).innerText = new Intl.NumberFormat(&quot;ar-EG&quot;).format(number)
+    document.getElementById(&quot;sund&quot;).innerText = new Intl.NumberFormat(&quot;en-EN&quot;, {numberingSystem: &#39;sund&#39;}).format(number)
+&lt;/script&gt;
+
+        </code>
+
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

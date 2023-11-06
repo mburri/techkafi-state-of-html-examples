@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intl - Data formats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.css"
+          integrity="sha512-h553W5EVLDpBoFaI7b6T8EdE71vb1ave8A8eH2KAgAF1fwB631hwkMdIkvGbCqw6gus+9rWvLy4RSRxGLviW+w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./../styles/style.css">
+    <script src="./../js/navigation-component.js"></script>
+    <base href="./../">
+</head>
+<body>
+
+<header>
+    <navigation-component></navigation-component>
+</header>
+<main>
+    <h1>Intl - Data formats</h1>
+    <div class="content">
+        <div class="example-description">
+            <p>The Intl.DateTimeFormat object enables language-sensitive date and time formatting.</p>
+            <p>See: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat</a></p>
+
+            <style>
+                span {
+                    font-weight: bold;
+                }
+            </style>
+            <table>
+                <tbody>
+                <tr><td>Unformatted... </td><td><span id="unformatted"></span></td></tr>
+                <tr><td>Default  </td><td><span id="default"></span></td></tr>
+                <tr><td>Locale 'de-CH'</td><td><span id="de-ch"></span></td></tr>
+                <tr><td>Korean locale </td><td><span id="ko-KR"></span></td></tr>
+                <tr><td>Custom</td><td><span id="de-ch-options"></span></td></tr>
+
+                </tbody>
+            </table>
+
+            <script>
+                const now = new Date();
+                document.getElementById("unformatted").innerText = now;
+                document.getElementById("default").innerText = new Intl.DateTimeFormat().format(now);
+                document.getElementById("de-ch").innerText = new Intl.DateTimeFormat("de-CH").format(now);
+                document.getElementById("ko-KR").innerText = new Intl.DateTimeFormat("ko-KR").format(now);
+
+                let options = {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "Europe/Zurich",
+                    timeZoneName : "long"
+                };
+                document.getElementById("de-ch-options").innerText = new Intl.DateTimeFormat("de-CH", options).format(now);
+            </script>
+        </div>
+
+        <code class="language-javascript">
+&lt;table&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Unformatted... &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;unformatted&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Default  &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;default&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Locale &#39;de-CH&#39;&lt;/td&gt;&lt;td&gt;&lt;span id=&quot;de-ch&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Korean locale &lt;/td&gt;&lt;td&gt;&lt;span id=&quot;ko-KR&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Custom&lt;/td&gt;&lt;td&gt;&lt;span id=&quot;de-ch-options&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script&gt;
+    const now = new Date();
+    document.getElementById(&quot;unformatted&quot;).innerText = now;
+    document.getElementById(&quot;default&quot;).innerText = new Intl.DateTimeFormat().format(now);
+    document.getElementById(&quot;de-ch&quot;).innerText = new Intl.DateTimeFormat(&quot;de-CH&quot;).format(now);
+    document.getElementById(&quot;ko-KR&quot;).innerText = new Intl.DateTimeFormat(&quot;ko-KR&quot;).format(now);
+
+    let options = {
+        weekday: &quot;long&quot;,
+        year: &quot;numeric&quot;,
+        month: &quot;long&quot;,
+        day: &quot;numeric&quot;,
+        timeZone: &quot;Europe/Zurich&quot;,
+        timeZoneName : &quot;long&quot;
+    };
+    document.getElementById(&quot;de-ch-options&quot;).innerText = new Intl.DateTimeFormat(&quot;de-CH&quot;, options).format(now);
+            </script>
+        </code>
+
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+        integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
