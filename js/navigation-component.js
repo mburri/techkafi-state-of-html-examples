@@ -50,10 +50,20 @@ class Navigation extends HTMLElement {
             nav {
                 display: flex;
                 flex-direction: column;
+                
+                @media screen and (min-width: 900px) {
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
             }
             
             details {
                 margin-top: 1em;
+                @media screen and (min-width: 900px) {
+                    margin-top: 0em;
+                    margin-left: 2em;
+                }
             }
             
             details div {
