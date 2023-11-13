@@ -10,7 +10,6 @@ class Navigation extends HTMLElement {
 
         const nav = document.createElement("nav");
 
-        const test = "test"
         nav.innerHTML = `
             <a href="index.html">Home</a>
             <details ${this.currentSection === "forms" ? "open" : ""}>

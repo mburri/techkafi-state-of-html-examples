@@ -16,7 +16,7 @@
     <navigation-component></navigation-component>
 </header>
 <main>
-    <h1>Web Component</h1>
+    <h1>Web Components</h1>
     <div class="content">
         <div class="example-description">
             <p>Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.</p>
@@ -29,40 +29,41 @@
         <code class="language-javascript">
 class Navigation extends HTMLElement {
     constructor() {
-    super();
-    this.attachShadow({mode: &quot;open&quot;});
+        super();
+        this.attachShadow({mode: &quot;open&quot;});
 
-    const nav = document.createElement(&quot;nav&quot;);
+            this.currentSection = this.determineSection(window.location);
 
-    nav.innerHTML = `
-            &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
-            &lt;details open&gt;
+            const nav = document.createElement("nav");
+
+            nav.innerHTML = `
+                &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+                &lt;details ${this.currentSection === &quot;forms&quot; ? &quot;open&quot; : &quot;&quot;}&gt;
                 &lt;summary&gt;Forms&lt;/summary&gt;
                 &lt;div&gt;
                     &lt;a href=&quot;forms/form-data-api.html&quot;&gt;Form Data API&lt;/a&gt;
                     &lt;a href=&quot;forms/input-capture.html&quot;&gt;Html attribute: capture&lt;/a&gt;
                     &lt;a href=&quot;forms/select-list.html&quot;&gt;Selectlist&lt;/a&gt;
                 &lt;/div&gt;
-            &lt;/details&gt;
-            // more details omitted
+                &lt;/details&gt;
+                // more details omitted
 
-            `
-    const style = document.createElement(&quot;style&quot;)
-            style.textContent = `
-            nav {
-                display: flex;
-                flex-direction: column;
+                `
+        const style = document.createElement(&quot;style&quot;)
+                style.textContent = `
+                nav {
+                    display: flex;
+                    flex-direction: column;
 
-                @media screen and (min-width: 900px) {
-                    width: 100%;
-                    flex-direction: row;
-                    justify-content: space-around;
+                    @media screen and (min-width: 900px) {
+                        width: 100%;
+                        flex-direction: row;
+                        justify-content: space-around;
+                    }
                 }
-            }
-                // more styles omitted
-            `
-    this.shadowRoot.append(nav, style);
-
+                    // more styles omitted
+                `
+        this.shadowRoot.append(nav, style);
     }
 }
         </code>
