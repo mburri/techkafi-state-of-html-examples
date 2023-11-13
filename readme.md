@@ -15,6 +15,9 @@ Run a simple server with live reload:
 npx live-server
 ```
 
+## Slides
+
+https://mburri.github.io/techkafi-state-of-html-examples/slides/state-of-html.sozi.html
 
 ## Framework integrations
 
